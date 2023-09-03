@@ -4,22 +4,11 @@ const app=express()
 
 require('dotenv').config()
 const cors=require('cors');
-const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
+const { MongoClient, ServerApiVersion} = require('mongodb');
 const { query } = require('express')
 app.use(cors())
-const corsConfig = {
-    origin: '*',
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE']
-}
-app.use(cors(corsConfig))
-app.options("*", cors(corsConfig))
-app.use(express.json())
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*")
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept,authorization")
-    next()
-})
+
+
 const port = 5000;
 app.use(express.json());
 app.get('/',(req,res)=>{
